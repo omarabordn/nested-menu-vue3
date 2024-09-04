@@ -4,16 +4,17 @@
       {{ item.name }}
       <button @click="removeItem" class="text-red-500 ml-2">Remove</button>
     </div>
+
     <ul class="ml-4 mt-2" v-if="item.children.length">
       <MenuItem
         v-for="(child, index) in item.children"
         :key="child.id"
         :item="child"
         :index="index"
-        @remove-item="removeChild"
-      />
+        @remove-item="removeChild"/>
     </ul>
   </li>
+  
 </template>
 
 <script lang="ts">
@@ -32,11 +33,13 @@ export default defineComponent({
       type: Object as () => MenuItem,
       required: true,
     },
+
     index: {
       type: Number,
       required: true,
     },
   },
+
   emits: ['remove-item'],
   methods: {
     removeItem() {
@@ -46,9 +49,9 @@ export default defineComponent({
       this.item.children.splice(childIndex, 1);
     },
   },
+  
 });
-</script>
 
+</script>
 <style scoped>
-/* Scoped styles for MenuItem */
 </style>

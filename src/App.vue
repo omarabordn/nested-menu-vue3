@@ -1,6 +1,5 @@
 <template>
   <div class="flex">
-    <!-- Sidebar with pages -->
     <div class="w-1/4 p-4 border-r">
       <h2 class="font-bold mb-4">Pages</h2>
       <ul>
@@ -8,27 +7,29 @@
           v-for="page in pages"
           :key="page.id"
           @click="addPageToMenu(page)"
-          class="cursor-pointer p-2 bg-gray-100 mb-2 rounded hover:bg-gray-200"
-        >
+          class="cursor-pointer p-2 bg-gray-100 mb-2 rounded hover:bg-gray-200" >
           {{ page.name }}
         </li>
+
       </ul>
     </div>
 
-    <!-- Menu Builder -->
+
+
     <div class="w-3/4 p-4">
       <h2 class="font-bold mb-4">Menu Builder</h2>
       <ul id="menu-list" class="p-4 border border-gray-300 rounded bg-white">
-        <MenuItem
+         <MenuItem
           v-for="(item, index) in menu"
           :key="item.id"
           :item="item"
           :index="index"
-          @remove-item="removeMenuItem"
-        />
+          @remove-item="removeMenuItem"/>
       </ul>
+
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
@@ -89,8 +90,9 @@ export default defineComponent({
     };
   },
 });
+
 </script>
 
 <style scoped>
-/* TailwindCSS is already imported in the main.ts file */
+
 </style>
